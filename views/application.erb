@@ -1,16 +1,40 @@
 <html>
 
   <head>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/application.css">
+    <style>
+      #bgvid {
+        position: fixed; right: 0; bottom: 0;
+        min-width: 100%; min-height: 100%;
+        width: auto; height: auto; z-index: -100;
+        background: url(guac.jpg) no-repeat;
+        background-size: cover;
+
+        -webkit-filter: blur(6px);
+        -moz-filter: blur(6px);
+        -o-filter: blur(6px);
+        -ms-filter: blur(6px);
+        filter: url(/images/blur.svg#blur);
+      }
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <video autoplay muted loop id="bgvid">
+      <source src="/images/guac.webm" type="video/webm">
+    </video>
 
-    <!-- Latest compiled and minified JavaScript -->
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="inner cover">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
