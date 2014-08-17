@@ -12,7 +12,7 @@ class Partiers
   property :id, Serial
   property :name, Text
   property :email, Text
-  property :item, Enum[:guac, :beer, :other], default :new
+  property :item, Enum[:guac, :beer, :other], default: new
   property :created_at, DateTime
   property :updated_at, DateTime
 end
