@@ -51,7 +51,6 @@ post '/' do
   else
     redirect '/', :error => 'Damn'
   end
-  redirect '/', :notice => 'Welcome to the guacamole life.'
 end
 
 get '/success' do
