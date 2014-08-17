@@ -19,7 +19,6 @@ a:hover {
   border: 1px solid #fff;
 }
 
-
 /*
  * Base structure
  */
@@ -29,6 +28,7 @@ body {
   height: 100%;
 }
 body {
+  font-family: 'Open Sans', sans-serif;
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
@@ -50,6 +50,13 @@ body {
 .cover-container {
   margin-right: auto;
   margin-left: auto;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.cover-heading {
+  margin-bottom: 60px;
+  font-size: 56px;
+  text-shadow: 6 3px 3px rgba(0,0,0,.5);
 }
 
 /* Padding for spacing */
@@ -75,7 +82,7 @@ body {
 .masthead-nav > li > a {
   padding-right: 0;
   padding-left: 0;
-  font-size: 16px;
+  font-size: 32px;
   font-weight: bold;
   color: #fff; /* IE8 proofing */
   color: rgba(255,255,255,.75);
@@ -159,5 +166,9 @@ body {
   .cover-container {
     width: 700px;
   }
+}
+
+input {
+  color: black;
 }
 
