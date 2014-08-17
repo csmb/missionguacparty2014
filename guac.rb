@@ -21,13 +21,14 @@ class Partiers
 end
 DataMapper.finalize.auto_upgrade!
 
-
 helpers do
   include Rack::Utils
 end
 
+set :public_folder, 'public'
+
 get '/' do
-  erb :home
+  erb :home, layout: :application
 end
 
 post '/' do
@@ -53,5 +54,5 @@ post '/' do
 end
 
 get '/success' do
-  erb :success
+  erb :success, layout: :application
 end
