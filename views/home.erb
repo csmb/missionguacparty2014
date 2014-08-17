@@ -1,10 +1,25 @@
-Mission Guac Party!
+<h1 class="cover-heading">Mission Guac Party!</h1>
 
-<form action="/" method="post">
-  <input type="text" name="name" placeholder="Name">
-  <input type="text" name="email" placeholder="Email">
-  Guacamole<input type="checkbox" name="guac">
-  Beer<input type="checkbox" name="beer">
-  Other<input type="checkbox" name="other">
-  <input type="submit" value="Party on!">
+<form role="form" action="/" method="post">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="name">Email</label>
+    <input type="text" name="email" placeholder="guac-lover@gmail.com">
+  </div>
+  <div class="form-group">
+    <label for="guac">Guac</label>
+    <input type="checkbox" name="guac">
+  </div>
+  <div class="form-group">
+    <label for="beer">Beer</label>
+    <input type="checkbox" name="beer">
+  </div>
+  <div class="form-group">
+    <label for="other">Other</label>
+    <input type="checkbox" name="other">
+  </div>
+  <button type="submit" class="btn btn-lg btn-success">Submit</button>
 </form>
