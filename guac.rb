@@ -5,7 +5,6 @@ require 'dm-postgres-adapter'
 require 'dm-timestamps'
 require 'dm-core'
 require 'pg'
-require 'pry'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/database.db")
 class Partiers

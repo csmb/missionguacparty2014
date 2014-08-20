@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'dm-timestamps'
 gem 'dm-core'
+gem 'pony'
 
 group :development do
   gem 'shotgun'
