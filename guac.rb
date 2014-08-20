@@ -12,9 +12,7 @@ class Partiers
   property :id, Serial
   property :name, String
   property :email, String
-  property :guac, Boolean, default: false
-  property :beer, Boolean, default: false
-  property :other, Boolean, default: false
+  property :bringing, Flag[:guac, :beer, :other]
   property :created_at, DateTime
   property :updated_at, DateTime
 end
@@ -34,14 +32,15 @@ post '/' do
   p = Partiers.new
   p.name = params[:name]
   p.email = params[:email]
+  p.bringing = []
   if params[:guac]
-    p.guac = true
+    p.bringing = [:guac]
   end
   if params[:beer]
-  p.beer = true
+    p.bringing += [:beer]
   end
   if params[:other]
-    p.other = true
+    p.bringing += [:other]
   end
   p.created_at = Time.now
   p.updated_at = Time.now
