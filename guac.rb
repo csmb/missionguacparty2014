@@ -51,7 +51,7 @@ post '/' do
               :address              => 'smtp.gmail.com',
               :port                 => '587',
               :enable_starttls_auto => true,
-              :user_name            => 'missionguacparty',
+              :user_name            => 'missionguacparty@gmail.com',
               :password             => ENV['MGP_PASS'],
               :authentication       => :plain, 
               :domain               => "localhost.localdomain" 
