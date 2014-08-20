@@ -5,6 +5,7 @@ require 'dm-postgres-adapter'
 require 'dm-timestamps'
 require 'dm-core'
 require 'pg'
+require 'pony'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/database.db")
 class Partiers
@@ -42,6 +43,19 @@ post '/' do
   if params[:other]
     p.bringing += [:other]
   end
+  Pony.mail :to => params[:email],
+            :from => "missionguacparty@gmail.com",
+            :subject => "See ya at the party #{params[:name]}!",
+            :body => erb(:email),
+            :via_options => {
+              :address              => 'smtp.gmail.com',
+              :port                 => '587',
+              :enable_starttls_auto => true,
+              :user_name            => 'missionguacparty',
+              :password             => MGP_PASS,
+              :authentication       => :plain, 
+              :domain               => "localhost.localdomain" 
+            }
   p.created_at = Time.now
   p.updated_at = Time.now
   if p.save
