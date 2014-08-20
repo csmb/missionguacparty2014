@@ -52,7 +52,7 @@ post '/' do
               :port                 => '587',
               :enable_starttls_auto => true,
               :user_name            => 'missionguacparty',
-              :password             => MGP_PASS,
+              :password             => ENV['MGP_PASS'],
               :authentication       => :plain, 
               :domain               => "localhost.localdomain" 
             }
