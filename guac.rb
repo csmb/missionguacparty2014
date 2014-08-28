@@ -65,9 +65,9 @@ post '/' do
     }
   end
   if :production
-    Pony.mail :to => params[:email],
+    Pony.mail :to => p.email,
               :from => "missionguacparty@gmail.com",
-              :subject => "See ya at the party #{params[:name]}!",
+              :subject => "See ya at the party #{p.name}!",
               :body => erb(:email)
   end
   p.created_at = Time.now
