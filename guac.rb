@@ -65,7 +65,7 @@ post '/' do
     }
   end
   if :production
-    Pony.mail :to => p.email,
+    Pony.mail :to => "christophersbunting@gmail.com",
               :from => "missionguacparty@gmail.com",
               :subject => "See ya at the party #{p.name}!",
               :body => erb(:email)
