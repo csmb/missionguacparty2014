@@ -43,19 +43,33 @@ post '/' do
   if params[:other]
     p.bringing += [:other]
   end
-  Pony.mail :to => params[:email],
-            :from => "missionguacparty@gmail.com",
-            :subject => "See ya at the party #{params[:name]}!",
-            :body => erb(:email),
-            :via_options => {
-              :address              => 'smtp.gmail.com',
-              :port                 => '587',
-              :enable_starttls_auto => true,
-              :user_name            => 'missionguacparty@gmail.com',
-              :password             => ENV['MGP_PASS'],
-              :authentication       => :plain, 
-              :domain               => "localhost.localdomain" 
-            }
+
+  if :development
+    require "letter_opener"
+    Pony.options = {
+      :via => LetterOpener::DeliveryMethod,
+      :via_options => {:location => File.expand_path('../tmp/letter_opener', __FILE__)}
+    }
+  else
+    Pony.options = {
+      :via => :smtp,
+      :via_options => {
+        :address => 'smtp.sendgrid.net',
+        :port => '587',
+        :domain => 'heroku.com',
+        :user_name => ENV['SENDGRID_USERNAME'],
+        :password => ENV['SENDGRID_PASSWORD'],
+        :authentication => :plain,
+        :enable_starttls_auto => true
+      }
+    }
+  end
+  if :production
+    Pony.mail :to => params[:email],
+              :from => "missionguacparty@gmail.com",
+              :subject => "See ya at the party #{params[:name]}!",
+              :body => erb(:email)
+  end
   p.created_at = Time.now
   p.updated_at = Time.now
   if p.save
