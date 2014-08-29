@@ -45,11 +45,11 @@ post '/' do
   end
 
   if :development
-    require "letter_opener"
-    Pony.options = {
-      :via => LetterOpener::DeliveryMethod,
-      :via_options => {:location => File.expand_path('../tmp/letter_opener', __FILE__)}
-    }
+    # require "letter_opener"
+    # Pony.options = {
+      # :via => LetterOpener::DeliveryMethod,
+      # :via_options => {:location => File.expand_path('../tmp/letter_opener', __FILE__)}
+    # }
   else
     Pony.options = {
       :via => :smtp,
@@ -65,7 +65,6 @@ post '/' do
     }
   end
   if :production
-    puts Pony.options
     Pony.mail :to => "christophersbunting@gmail.com",
               :from => "missionguacparty@gmail.com",
               :subject => "See ya at the party #{p.name}!",
