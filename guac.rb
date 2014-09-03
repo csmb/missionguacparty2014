@@ -7,7 +7,7 @@ require 'dm-core'
 require 'pg'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/database.db")
-class Partiers
+class Partier
   include DataMapper::Resource
   property :id, Serial
   property :name, String
@@ -29,7 +29,7 @@ get '/' do
 end
 
 post '/' do
-  p = Partiers.new
+  p = Partier.new
   p.name = params[:name]
   p.email = params[:email]
   p.bringing = []
@@ -47,7 +47,7 @@ post '/' do
   if p.save
     redirect '/success'
   else
-    redirect '/', :error => 'Damn'
+    redirect '/'
   end
 end
 
