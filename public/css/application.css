@@ -195,3 +195,7 @@ input {
 input[type=checkbox] {
   margin-top: 8px;
 }
+
+.checkbox-header {
+  font-size: 21px;
+}
