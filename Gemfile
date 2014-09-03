@@ -9,6 +9,7 @@ gem 'pg'
 gem 'dm-timestamps'
 gem 'dm-core'
 gem 'pony'
+# gem 'letter_opener'
 
 group :development do
   gem 'shotgun'
