@@ -185,6 +185,7 @@ input {
   font-size: 22px;
   width: 100px;
   text-align: left;
+  text-shadow: black 2px 2px;
 }
 
 .invitation-body {
@@ -192,6 +193,7 @@ input {
   margin-bottom: 10px;
   padding-top: 8px;
   font-size: 16px;
+  text-shadow: black 1px 1px;
 }
 
 input[type=checkbox] {
@@ -200,4 +202,5 @@ input[type=checkbox] {
 
 .checkbox-header {
   font-size: 21px;
+  text-shadow: black 1px 1px;
 }
