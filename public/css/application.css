@@ -184,6 +184,7 @@ input {
 .invitation-side {
   font-size: 22px;
   width: 100px;
+  text-align: left;
 }
 
 .invitation-body {
