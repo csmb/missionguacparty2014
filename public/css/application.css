@@ -19,6 +19,7 @@ a:hover {
   border: 1px solid #fff;
 }
 
+
 /*
  * Base structure
  */
@@ -59,6 +60,10 @@ body {
   text-shadow: 6 3px 3px rgba(0,0,0,.5);
 }
 
+.cover-top {
+  text-shadow: 6 3px 3px rgba(0,0,0,.5);
+}
+
 /* Padding for spacing */
 .inner {
   padding: 30px;
@@ -72,6 +77,7 @@ body {
 /*
  * Header
  */
+
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -203,4 +209,31 @@ input[type=checkbox] {
 .checkbox-header {
   font-size: 21px;
   text-shadow: black 1px 1px;
+}
+
+
+/*
+* Mobile style
+*/
+
+ @media only screen and (max-device-width: 480px) { 
+  body {
+    background:
+      radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px) 0px 10px,
+      radial-gradient(at 100% 100%,     rgba(96, 16, 48, 0) 9px, #613 10px, rgba(96, 16, 48, 0) 11px), #8a3;
+    background-size: 20px 20px;
+  }
+
+  #bgvid {
+    visibility: hidden;
+  }
+  
+  .invitation-body, .invitation-side{
+    text-align: center;
+    width: 100%;
+  }
+  
+  input[type=checkbox] {
+   margin-top: 8px;
+  }
 }
