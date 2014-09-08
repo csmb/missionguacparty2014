@@ -1,22 +1,10 @@
 require 'sinatra'
-require 'sinatra/flash'
-require 'data_mapper'
-require 'dm-postgres-adapter'
-require 'dm-timestamps'
-require 'dm-core'
 require 'pg'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/database.db")
-class Partier
-  include DataMapper::Resource
-  property :id, Serial
-  property :name, String
-  property :email, String
-  property :bringing, Flag[:guac, :beer, :other]
-  property :created_at, DateTime
-  property :updated_at, DateTime
-end
-DataMapper.finalize.auto_upgrade!
+require_relative './email'
+require_relative './models'
+
+welcome_email = ERB.new(IO.read('./views/emails/welcome.erb'))
 
 helpers do
   include Rack::Utils
@@ -44,6 +32,10 @@ post '/' do
   end
   p.created_at = Time.now
   p.updated_at = Time.now
+  Pony.mail to: p.email,
+            from: "MGP <missionguacpary@gmail.com>",
+            subject: "Guacamole!",
+            body: welcome_email.result(binding)
   if p.save
     redirect '/success'
   else
