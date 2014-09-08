@@ -33,7 +33,7 @@ post '/' do
   p.created_at = Time.now
   p.updated_at = Time.now
   Pony.mail to: p.email,
-            from: "MGP <missionguacpary@gmail.com>",
+            from: "MGP <missionguacparty@gmail.com>",
             subject: "Guacamole!",
             body: welcome_email.result(binding)
   if p.save
