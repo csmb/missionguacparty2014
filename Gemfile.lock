@@ -104,6 +104,7 @@ DEPENDENCIES
   dm-sqlite-adapter
   dm-timestamps
   letter_opener
+  mail
   pg
   pony
   pry

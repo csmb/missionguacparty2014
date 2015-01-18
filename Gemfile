@@ -10,6 +10,7 @@ gem 'dm-timestamps'
 gem 'dm-core'
 gem 'pony'
 gem 'letter_opener'
+gem 'mail'
 
 group :development do
   gem 'shotgun'
