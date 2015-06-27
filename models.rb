@@ -10,7 +10,9 @@ class Partier
   property :id, Serial
   property :name, String
   property :email, String
-  property :bringing, Flag[:guac, :beer, :other]
+  property :beer, Boolean
+  property :guac, Boolean
+  property :other, Boolean
   property :created_at, DateTime
   property :updated_at, DateTime
 end

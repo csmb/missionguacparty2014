@@ -17,26 +17,12 @@ get '/' do
 end
 
 post '/' do
-  p = Partier.new
-  p.name = params[:name]
-  p.email = params[:email]
-  p.bringing = []
-  if params[:guac]
-    p.bringing = [:guac]
-  end
-  if params[:beer]
-    p.bringing += [:beer]
-  end
-  if params[:other]
-    p.bringing += [:other]
-  end
-  p.created_at = Time.now
-  p.updated_at = Time.now
-  Pony.mail to: p.email,
+  partier = Partier.new(params)
+  if partier.save
+    Pony.mail to: partier.email,
             from: "MGP <missionguacparty@gmail.com>",
             subject: "Guacamole!",
             body: welcome_email.result(binding)
-  if p.save
     redirect '/success'
   else
     redirect '/'
