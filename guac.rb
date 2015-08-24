@@ -12,7 +12,10 @@ end
 
 set :public_folder, 'public'
 
+AVOCADO_COUNT = 6
+
 get '/' do
+  @avocados = AVOCADO_COUNT
   erb :home, layout: :application
 end
 
@@ -23,12 +26,16 @@ post '/' do
             from: "MGP <missionguacparty@gmail.com>",
             subject: "Guacamole!",
             body: welcome_email.result(binding)
-    redirect '/success'
+    redirect '/partyon'
   else
     redirect '/'
   end
 end
 
-get '/success' do
+get '/partyon' do
   erb :success, layout: :application
+end
+
+get '/success' do
+  redirect '/partyon', 301
 end
