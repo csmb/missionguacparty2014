@@ -7,6 +7,16 @@ if settings.development?
     :via => LetterOpener::DeliveryMethod,
     :via_options => {:location => File.expand_path('../tmp/letter_opener', __FILE__)}
   }
+elsif
+  settings.test?
+  #
+  # Uncomment to begin sending emails while testing
+  #
+  # require "letter_opener"
+  # Pony.options = {
+  #   :via => LetterOpener::DeliveryMethod,
+  #   :via_options => {:location => File.expand_path('../tmp/letter_opener', __FILE__)}
+  # }
 else
   Pony.options = {
     :via => :smtp,
